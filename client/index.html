@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalletMom - Personal Finance Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="./resources/styles/index.css">
+    <style>
+        /* Modal styles */
+        .transaction-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Above other elements */
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hide the modal by default */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="logo-container">
+                <h1>WalletMom</h1>
+            </div>
+            <div class="nav-items">
+                <div class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span><a href="index.html">Overview</a></span>
+                </div>
+                <div class="nav-item active">
+                    <i class="fas fa-wallet"></i>
+                    <span><a href="manage.html">Manage</a></span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span><a href="advice.html">Advice</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header with Profile -->
+            <div class="header">
+                <div class="profile-container">
+                    <img src="profile-placeholder.png" alt="Profile Picture" class="profile-pic">
+                    <div class="user-info">
+                        <span class="user-name">Ethan Smith</span>
+                        <span class="user-email">ethan@example.com</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <button class="settings-btn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jumbotron with Greeting -->
+            <div class="jumbotron">
+                <h1 class="greeting">Hi Ethan!</h1>
+                <p class="sub-greeting">Your monthly budget is on track. Keep it up!</p>
+            </div>
+
+            <!-- Main Dashboard Content -->
+            <div class="dashboard">
+                <!-- Left Section - Pie Chart -->
+                <div class="chart-section">
+                    <div class="section-header">
+                        <h2>Monthly Budget Breakdown</h2>
+                        <span class="date">March 2025</span>
+                    </div>
+                    <div class="pie-chart-container">
+                        <div id="piechart"></div>
+                    </div>
+                </div>
+
+                <!-- Right Section - Budget Categories -->
+                <div class="budget-categories">
+                    <div class="category-card needs-card">
+                        <div class="category-header">
+                            <h3>Needs</h3>
+                            <i class="fas fa-house-user"></i>
+                        </div>
+                        <div class="category-amount">$1,450</div>
+                        <div class="category-progress">
+                            <div class="progress-bar needs-progress" style="width: 65%"></div>
+                        </div>
+                        <div class="category-limit">$2,200 limit</div>
+                    </div>
+
+                    <div class="category-card wants-card">
+                        <div class="category-header">
+                            <h3>Wants</h3>
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="category-amount">$850</div>
+                        <div class="category-progress">
+                            <div class="progress-bar wants-progress" style="width: 75%"></div>
+                        </div>
+                        <div class="category-limit">$1,100 limit</
+                        </div>
+                        <div class="category-card savings-card">
+                            <div class="category-header">
+                                <h3>Savings</h3>
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <div class="category-amount">$750</div>
+                            <div class="category-progress">
+                                <div class="progress-bar savings-progress" style="width: 85%"></div>
+                            </div>
+                            <div class="category-limit">$900 goal</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Transactions Section -->
+                <div class="transactions-section">
+                    <div class="section-header">
+                        <h2>Recent Transactions</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon grocery">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Grocery Store</div>
+                                <div class="transaction-category">Needs</div>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-amount">-$86.45</div>
+                                <div class="transaction-date">Today</div>
+                            </div>
+                        </div>
+    
+                        <div class="transaction-item">
+                            <div class="transaction-icon entertainment">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Movie Tickets</div>
+                                <div class="transaction-category">Wants</div>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-amount">-$32.50</div>
+                                <div class="transaction-date">Yesterday</div>
+                            </div>
+                        </div>
+    
+                        <div class="transaction-item">
+                            <div class="transaction-icon income">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Paycheck</div>
+                                <div class="transaction-category">Income</div>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-amount income">+$1,450.00</div>
+                                <div class="transaction-date">Mar 25</div>
+                            </div>
+                        </div>
+    
+                        <div class="transaction-item">
+                            <div class="transaction-icon utilities">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Electricity Bill</div>
+                                <div class="transaction-category">Needs</div>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-amount">-$94.72</div>
+                                <div class="transaction-date">Mar 23</div>
+                            </div>
+                        </div>
+    
+                        <div class="transaction-item">
+                            <div class="transaction-icon restaurant">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Restaurant</div>
+                                <div class="transaction-category">Wants</div>
+                            </div>
+                            <div class="transaction-info">
+                                <div class="transaction-amount">-$58.20</div>
+                                <div class="transaction-date">Mar 21</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Add Transaction Button -->
+        <button class="add-transaction-btn">Add Transaction</button>
+    
+        <!-- Modal Structure for Adding Transaction -->
+        <div class="transaction-modal hidden"> <!-- Add 'hidden' class to keep it hidden initially -->
+            <div class="modal-content">
+                <h2>Add New Transaction</h2>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="transaction-description">Description</label>
+                        <input type="text" id="transaction-description" placeholder="e.g., Coffee Shop" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="transaction-amount">Amount</label>
+                        <input type="number" id="transaction-amount" step="0.01" placeholder="e.g., -4.75" required>
+                        <small>Use negative for expenses, positive for income</small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancel-transaction">Cancel</button>
+                          <button type="submit">Add Transaction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="./resources/scripts/script.js"></script>
+    <script src="./resources/scripts/index.js"></script>
+</body>
+</html>

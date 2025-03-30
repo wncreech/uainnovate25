@@ -1,0 +1,6 @@
+@WalletMom_HostAddress = http://localhost:5248
+
+GET {{WalletMom_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage - WalletMom</title>
+    
+    <link rel="stylesheet" href="manage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="./resources/scripts/manage.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo-container">
+                <h1>WalletMom</h1>
+            </div>
+            <div class="nav-items">
+                <div class="nav-items">
+                    <div class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span><a href="index.html">Overview</a></span>
+                    </div>
+                    <div class="nav-item active">
+                        <i class="fas fa-wallet"></i>
+                        <span><a href="manage.html">Manage</a></span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span><a href="advice.html">Advice</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Main Content -->
+         <div class="col-md-9 main-content">
+            <h2 class="page-title">Manage Your Finances</h2>
+            
+            <!-- Category Selector -->
+            <div class="category-selector">
+                <div class="category-btn active" data-category="income">Income</div>
+                <div class="category-btn" data-category="wants">Wants</div>
+                <div class="category-btn" data-category="needs">Needs</div>
+                <div class="category-btn" data-category="savings">Savings</div>
+            </div>
+
+            <!-- Tables Container -->
+            <div class="tables-container">
+                <!-- Income Table -->
+                <div id="income-table" class="category-table active">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Source</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary add-entry">Add Income</button>
+                </div>
+
+                <!-- Wants Table -->
+                <div id="wants-table" class="category-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary add-entry">Add Want</button>
+                </div>
+
+                <!-- Needs Table -->
+                <div id="needs-table" class="category-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary add-entry">Add Need</button>
+                </div>
+
+                <!-- Savings Table -->
+                <div id="savings-table" class="category-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Goal</th>
+                                <th>Amount</th>
+                                <th>Target Date</th>
+                                <th>Progress</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary add-entry">Add Savings Goal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="manage.js"></script>
+
+       
+</body>
+</html>

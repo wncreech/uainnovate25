@@ -1,0 +1,86 @@
+{
+  "userName": "Broke",
+  "fileName": "first.json",
+  "needsPercentGoal": 50,
+  "needsDollarGoal": 46,
+  "wantsPercentGoal": 30,
+  "wantsDollarGoal": 27.599999999999998,
+  "savingsPercentGoal": 20,
+  "savingsDollarGoal": 18.400000000000002,
+  "totalMonthlyIncome": 92,
+  "monthlyNeedsTotal": 46,
+  "monthlyWantsTotal": 0,
+  "monthlySavingsTotal": 138,
+  "IncomeCats": [
+    {
+      "title": "Salary",
+      "emojiIcon": "\u2692\uFE0F",
+      "dollarAmount": 92,
+      "isFixed": true,
+      "catId": 0,
+      "transactions": [
+        {
+          "description": "Paycheck",
+          "amount": 46,
+          "date": "2025-03-29T23:21:31.8749975-05:00"
+        },
+        {
+          "description": "paycheck",
+          "amount": 46,
+          "date": "2025-03-29T23:22:26.1031628-05:00"
+        }
+      ]
+    }
+  ],
+  "NeedsCats": [
+    {
+      "title": "Rent",
+      "emojiIcon": "\uD83C\uDFE0",
+      "dollarAmount": 0,
+      "isFixed": false,
+      "catId": 0,
+      "transactions": []
+    },
+    {
+      "title": "Social",
+      "emojiIcon": "\uD83C\uDF88",
+      "dollarAmount": 46,
+      "isFixed": false,
+      "catId": 0,
+      "transactions": [
+        {
+          "description": "rounders drinks",
+          "amount": 46,
+          "date": "2025-03-29T23:23:29.1964514-05:00"
+        }
+      ]
+    }
+  ],
+  "WantsCats": [],
+  "SavingsCats": [
+    {
+      "title": "HYSA Deposit",
+      "emojiIcon": "\uD83D\uDCB0",
+      "dollarAmount": 138,
+      "isFixed": true,
+      "catId": 0,
+      "transactions": [
+        {
+          "description": "Vanguard",
+          "amount": 46,
+          "date": "2025-03-29T23:19:54.5695223-05:00"
+        },
+        {
+          "description": "Vanguard again",
+          "amount": 46,
+          "date": "2025-03-29T23:20:47.6122813-05:00"
+        },
+        {
+          "description": "vanguard",
+          "amount": 46,
+          "date": "2025-03-29T23:25:32.665784-05:00"
+        }
+      ]
+    }
+  ]
+}
